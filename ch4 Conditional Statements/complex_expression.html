@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Complex Expression
+    </title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        var xPos = 300;
+        var yPos = 150;
+
+        function sendWarning(x, y) {
+            if ((x < xPos) && (y < yPos)) {
+                alert("Adjust the position");
+            } else {
+                alert("Things are fine!");
+            }
+        }
+
+        sendWarning(500, 160);
+        sendWarning(100, 100);
+        sendWarning(201, 149);
+    </script>
+</body>
+
+</html>

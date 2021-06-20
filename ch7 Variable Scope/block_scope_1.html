@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Block scope 1
+    </title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        function checkWeight(weight) {
+            if (weight > 5000) {
+                var text = "No free shipping for you!";
+                alert(text);
+            }
+            alert(text); // how did it know??!
+        }
+        checkWeight(6000);
+    </script>
+</body>
+
+</html>

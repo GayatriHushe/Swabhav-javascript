@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Block scope 3
+    </title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        var foo = "Hello!";
+
+        function doSomethingClever() {
+            alert(foo);
+            var foo = "Good Bye!";
+            alert(foo);
+        }
+        doSomethingClever();
+    </script>
+</body>
+
+</html>

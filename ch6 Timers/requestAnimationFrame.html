@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        requestAnimationFrame
+    </title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <h1 id="output"></h1>
+    <script>
+        let output = document.getElementById('output');
+        let number = 0;
+
+        function paint() {
+            number++;
+            output.textContent = number;
+            if (number < 300) {
+                requestAnimationFrame(paint);
+            }
+        }
+
+        window.requestAnimationFrame(paint);
+    </script>
+    </script>
+</body>
+
+</html>
