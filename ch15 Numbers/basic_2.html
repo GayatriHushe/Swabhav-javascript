@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Numbers 2
+    </title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        //Random numbers
+        function getRandomNumber(low, high) {
+            let r = Math.floor(Math.random() * (high - low + 1)) + low;
+            return r;
+        }
+        var bar = getRandomNumber(0, 100);
+        document.writeln(bar + "<br>");
+
+        //String and int
+        var numberOne = "45";
+        var numberTwo = 3;
+        document.writeln(numberOne + numberTwo + "<br>");
+
+        var numberOne = parseInt("45");
+        var numberTwo = 3;
+        document.writeln(numberOne + numberTwo + "<br>");
+
+        var itemOne = parseFloat("2.99");
+
+        parseInt("foo"); // NaN
+        parseInt("200 + 400 + 300"); // 200
+        parseInt("200abc"); // 200    
+        parseInt("abc200"); // NaN       
+        "15" + 5; // 155      
+        "15" / 5; // 3        
+        "15" * 5; // 65
+        parseInt("4.55"); // 4
+
+        Number("3.14") // 3.14 as a number
+        Number("20px") // NaN
+
+        function getRandomColor() {
+            var characters = "0123456789ABCDEF";
+            var color = '#';
+
+            for (var i = 0; i < 6; i++) {
+                color += characters[getRandomNumber(0, 15)];
+            }
+
+            return color;
+        }
+        document.writeln(getRandomColor() + "<br>");
+
+        //random color square
+        var color = getRandomColor();
+        square.style.backgroundColor = color;
+    </script>
+</body>
+
+</html>

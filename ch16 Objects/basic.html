@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Objects
+    </title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        //Approach 1 without function
+        var funnyGuy = {};
+        //funnyGuy.toString();
+        document.writeln(funnyGuy + "<br>");
+
+        funnyGuy.firstName = "Conan";
+        funnyGuy.lastName = "O'Brien";
+        document.writeln(funnyGuy + "<br>");
+
+        //Approach 2 using function
+        var funnyGuy = {
+            firstName: "Conan",
+            lastName: "O'Brien",
+
+            getName: function() {
+                return "Name is: " + this.firstName + " " + this.lastName;
+            }
+        };
+        document.writeln(funnyGuy + "<br>");
+        document.writeln(funnyGuy.getName() + "<br>");
+
+        //Approach 3 using this
+        var person = {
+            getName: function() {
+                return "Name is " + this.firstName + " " + this.lastName;
+            }
+        };
+        var funnyGuy = Object.create(person);
+        funnyGuy.firstName = "Conan";
+        funnyGuy.lastName = "O'Brien";
+        document.writeln(funnyGuy.getName() + "<br>");
+
+        var theDude = Object.create(person);
+        theDude.firstName = "Jeffrey";
+        theDude.lastName = "Lebowski";
+        document.writeln(theDude.getName() + "<br>");
+
+        //Approach 4
+        var person = Object.create(null);
+        defineProperty(person, 'firstName', "Yehuda");
+        defineProperty(person, 'lastName', "Katz");
+        document.writeln(person + "<br>");
+
+        //Approach 5
+        var person = Object.create(null);
+        defineProperty(person, 'fullName', function() {
+            return this.firstName + ' ' + this.lastName;
+        });
+
+        // this time, let's make man's prototype person, so all men share the fullName function
+        var man = Object.create(person);
+        defineProperty(man, 'sex', "male");
+
+        var yehuda = Object.create(man);
+        defineProperty(yehuda, 'firstName', "Yehuda");
+        defineProperty(yehuda, 'lastName', "Katz");
+
+        yehuda.sex // "male"
+        yehuda.fullName() // "Yehuda Katz"
+    </script>
+</body>
+
+</html>

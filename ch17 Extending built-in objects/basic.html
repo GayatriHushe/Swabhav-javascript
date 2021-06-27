@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Built-in Objects
+    </title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        //Shuffle Approach 1
+
+        function shuffle(input) {
+            for (var i = input.length - 1; i >= 0; i--) {
+                var randomIndex = Math.floor(Math.random() * (i + 1));
+                var itemAtIndex = input[randomIndex];
+                input[randomIndex] = input[i];
+                input[i] = itemAtIndex;
+            }
+            return input;
+        }
+        var tempArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        shuffle(tempArray);
+        document.writeln(tempArray + "<br>");
+
+
+        //Shuffle Approach 2 using array object prototye
+
+        Array.prototype.shuffle = function() {
+            var input = this;
+            for (var i = input.length - 1; i >= 0; i--) {
+                var randomIndex = Math.floor(Math.random() * (i + 1));
+                var itemAtIndex = input[randomIndex];
+                input[randomIndex] = input[i];
+                input[i] = itemAtIndex;
+            }
+            return input;
+        }
+        var tempArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        shuffle(tempArray);
+        document.writeln(tempArray + "<br>");
+
+
+        //Some functionality should not be extended or overriden
+        var tempArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        tempArray.slice();
+        document.writeln(tempArray + "<br>");
+
+        Array.prototype.slice = function() {
+            var input = this;
+            input[0] = "This is an awesome example!";
+            return input;
+        }
+        var tempArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        tempArray.slice();
+        document.writeln(tempArray + "<br>");
+    </script>
+</body>
+
+</html>

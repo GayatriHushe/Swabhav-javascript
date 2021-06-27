@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        IIFE
+    </title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        //Normal Function
+        function areYouLucky() {
+            // Random number between 0 and 100
+            var foo = Math.floor(Math.random() * 100);
+            if (foo > 50) {
+                document.writeln("You are lucky!" + "<br>");
+            } else {
+                document.writeln("You are not lucky!" + "<br>");
+            }
+        }
+        areYouLucky();
+
+        //If you don’t give your functions a name, that is totally cool as well. They are known as anonymous functions
+
+        // anonymous function 1
+        var isLucky = function() {
+            var foo = Math.round(Math.random() * 100);
+            if (foo > 50) {
+                return "You are lucky!";
+            } else {
+                return "You are not lucky!";
+            }
+        };
+        var me = isLucky();
+        document.writeln(me + "<br>");
+
+        // anonymous function 2
+        window.setTimeout(function() {
+            document.writeln("Everything is awesome!!!" + "<br>");
+        }, 5000);
+
+
+        // Immediately Invoked Function Expression
+        //an IIFE is nothing more than a function (surrounded by a whole bunch of parentheses) that executes immediately.
+        (function() {
+            var shout = "I AM ALIVE!!!";
+            document.writeln(shout + "<br>");
+        })();
+
+        //IIFE with parameters
+        (function(first, last) {
+            document.writeln("My name is " + last + ", " + first + " " + last + "." + "<br>");
+        })("James", "Bond")
+
+
+        //Variable hoisting and lexical scope
+        function scopeDemo() {
+            if (true) {
+                var foo = "I know what you did last summer!";
+            }
+            document.writeln(foo + "<br>"); // totally exists!
+        }
+        scopeDemo();
+
+        /*
+        JS only has lexical scope. This means that variables declared using var inside a block such as an if statement or loop will actually be accessible to the entire enclosing function.
+        As you can see in above example, the foo variable, despite being stuck inside the if statement, is accessible outside of it because your if is not a scope-able block. This ability to have your “supposedly inner” variables promoted and accessible to the entire enclosing function is known as variable hoisting
+        */
+
+
+
+
+        //Avoiding Code Collision
+        /*
+        One of the biggest advantages of IIFEs is their ability to insulate any code from outside interference. This is important if you are writing code that will be used widely in someone else’s application. You want to ensure that any existing (or new) code doesn’t accidentally clobber your variables or override functions and methods. The way to ensure that such accidents don’t happen is to wrap all of your code inside an IIFE
+        */
+        /*
+         (function() {
+             // just querying the DOM...like a boss!
+             var links = document.querySelectorAll(".itemLinks");
+             var wrapper = document.querySelector("#wrapper");
+             // the activeLink provides a pointer to the currently displayed
+             item
+             var activeLink = 0;
+             // setup the event listeners
+             for (var i = 0; i < links.length; i++) {
+                 var link = links[i];
+                 link.addEventListener('click', setClickedItem, false);
+                 // identify the item for the activeLink
+                 link.itemID = i;
+             }
+             // set first item as active
+             links[activeLink].classList.add("active");
+
+             function setClickedItem(e) {
+                 removeActiveLinks()
+                 var clickedLink = e.target;
+                 activeLink = clickedLink.itemID;
+                 changePosition(clickedLink);
+             }
+
+             function removeActiveLinks() {
+                 for (var i = 0; i < links.length; i++) {
+                     links[i].classList.remove("active");
+                 }
+             }
+             // Handle changing the slider position as well as ensure
+             // the correct link is highlighted as being active
+             function changePosition(link) {
+                 var position = link.getAttribute("data-pos");
+                 wrapper.style.left = position;
+                 link.classList.add("active");
+             }
+         })();
+         */
+
+
+
+        //Closures and Locking in State
+        //closures store their outer values by referencing them. They don’t directly store the actual values
+
+        function quotatious(names) {
+            var quotes = [];
+            for (var i = 0; i < names.length; i++) {
+                var theFunction = function() {
+                    return "My name is " + names[i] + "!";
+                }
+                quotes.push(theFunction);
+            }
+            return quotes;
+        }
+        /*
+        Your theFunction function relies on the value of names[i]. The value of i is defined by the for loop (in the scope of the parent function), and the for loop is outside of the theFunction’s scope. What you have is basically a closure with the theFunction function and the variable i being an outer variable.
+        */
+
+        // our list of names
+        var people = ["Tony Stark", "John Rambo", "James Bond", "Rick James "];
+        // getting an array of functions
+        var peopleFunctions = quotatious(people);
+        // get the first function
+        var person = peopleFunctions[0];
+        // execute the first function
+        document.writeln("Person : " + person() + "<br>");
+
+
+        //modified version of the quotatious function
+        function quotatious(names) {
+            var quotes = [];
+            for (var i = 0; i < names.length; i++) {
+                (function(index) {
+                    var theFunction = function() {
+                        return "My name is " + names[index] + "!";
+                    }
+                    quotes.push(theFunction);
+                })(i);
+            }
+            return quotes;
+        }
+
+        // our list of names
+        var people = ["Tony Stark", "John Rambo", "James Bond", "Rick James "];
+        // getting an array of functions
+        var peopleFunctions = quotatious(people);
+        // get the first function
+        var person = peopleFunctions[0];
+        // execute the first function
+        document.writeln("Person : " + person() + "<br>");
+
+        //making things private
+
+        //1) Secret code can be checked directly
+        var weakSauce = {
+            secretCode: "Zorb!",
+            checkCode: function(code) {
+                if (this.secretCode == code) {
+                    alert("You are awesome!");
+                } else {
+                    alert("Try again!");
+                }
+            }
+        };
+        var bar = Object.create(weakSauce);
+        document.writeln(bar.secretCode + "<br>");
+
+        //2) Secret code can't be checked directly
+        var awesomeSauce = (function() {
+            var secretCode = "Zorb!";
+
+            function privateCheckCode(code) {
+                if (secretCode == code) {
+                    alert("You are awesome!");
+                } else {
+                    alert("Try again!");
+                }
+            }
+            // the public method we want to return
+            return {
+                checkCode: privateCheckCode
+            };
+        })();
+
+        var foo = Object.create(awesomeSauce);
+        document.writeln(bar.secretCode + "<br>"); // undefined
+    </script>
+</body>
+
+</html>

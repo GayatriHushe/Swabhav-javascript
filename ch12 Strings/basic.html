@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Basic String
+    </title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        var text = "this is some text";
+        var moreText = 'I am in single quotes!';
+        document.writeln("this is some more text" + "<br>");
+        var initial = "hello";
+        document.writeln(initial + " world!" + "<br>");
+        document.writeln("I can also " + "do this!" + "<br>");
+
+        var vowels = "aeiou";
+        document.writeln(vowels[2] + "<br>");
+
+        for (var i = 0; i < vowels.length; i++) {
+            document.writeln(vowels[i]);
+        }
+        document.writeln("<br>");
+
+        //Concatenation
+        var stringA = "I am a simple string.";
+        var stringB = "I am a simple string, too!";
+        document.writeln(stringA + " " + stringB + "<br>");
+
+        var textA = "Please";
+        var textB = new String("stop!");
+        var combined = textA + " make it " + textB;
+        document.writeln(combined + "<br>");
+
+        var foo = "I really";
+        var blah = "why anybody would";
+        var blarg = "do this";
+        var result = foo.concat(" don't know", " ", blah, " ", blarg);
+        document.writeln(result + "<br>");
+
+        //Substring using slice
+        var theBigString = "Pulp Fiction is an awesome movie!";
+        document.writeln(theBigString.slice(5, 12) + "<br>");
+        document.writeln(theBigString.slice(0, -6) + "<br>");
+        document.writeln(theBigString.slice(-14, -7) + "<br>");
+
+        //Substring using substr
+        var theBigString = "Pulp Fiction is an awesome movie!";
+        document.writeln(theBigString.substr(0, 4) + "<br>");
+        document.writeln(theBigString.substr(5, 7) + "<br>");
+
+        //Splitting a string/split
+        var inspirationalQuote = "That which you can concatenate, you can also split apart.";
+        var splitWords = inspirationalQuote.split(" ");
+        document.writeln(splitWords.length + "<br>");
+
+        var days = "Monday,Tuesday,Wednesday,Thursday,Friday,Saturday, Sunday ";
+        var splitWords = days.split(",");
+        document.writeln(splitWords[6] + "<br>");
+
+        //Index Of
+        var question = "I wonder what the pigs did to make these birds so angry ? ";
+        document.writeln(question.indexOf("pigs") + "<br>");
+
+        var question = "I wonder what the pigs did to make these birds so angry ? ";
+        document.writeln(question.indexOf("z") + "<br>"); //if not present returns -1
+
+        var question = "How much wood could a woodchuck chuck if a woodchuck could chuck wood?";
+        document.writeln(question.lastIndexOf("wood") + "<br>");
+
+        var question = "How much wood could a woodchuck chuck if a woodchuck could chuck wood ? ";
+        document.writeln(question.indexOf("wood", 30) + "<br>");
+
+        //Match method
+        var phrase = "There are 3 little pigs.";
+        //var regexp = /[0–9]/;
+        var regexp = /[a-z]/;
+        var numbers = phrase.match(regexp);
+        document.writeln(numbers[0] + "<br>");
+        document.writeln(numbers.length + "<br>");
+
+
+        //Lower and Upper Case
+        var phrase = "My name is Bond. James Bond.";
+        document.writeln(phrase.toUpperCase() + "<br>");
+        document.writeln(phrase.toLowerCase() + "<br>");
+    </script>
+</body>
+
+</html>

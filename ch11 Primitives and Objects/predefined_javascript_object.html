@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Predefined JS Objects
+    </title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        // an array
+        var names = ["Jerry", "Elaine", "George", "Kramer"];
+        var alsoNames = new Array("Dennis", "Frank", "Dee", "Mac");
+        document.writeln(names + "<br>");
+        document.writeln(alsoNames + "<br>");
+
+        // a round number
+        var roundNumber1 = Math.round("3.14");
+        document.writeln(roundNumber1 + "<br>");
+        var roundNumber2 = Math.round("3.56");
+        document.writeln(roundNumber2 + "<br>");
+
+        // today's date
+        var today = new Date();
+        document.writeln(today + "<br>");
+
+        // a boolean object
+        var booleanObject = new Boolean(true);
+        document.writeln(booleanObject + "<br>");
+
+        // infinity
+        var unquantifiablyBigNumber = Infinity;
+        document.writeln(unquantifiablyBigNumber + "<br>");
+
+        // a string object
+        var hello = new String("Hello!");
+        var movie = "Pulp Fiction";
+        var movieObj = new String("Pulp Fiction");
+        document.writeln(hello + "<br>");
+        document.writeln(movie + "<br>");
+        document.writeln(movieObj + "<br>");
+        document.writeln(movie == movieObj + "<br>");
+    </script>
+</body>
+
+</html>

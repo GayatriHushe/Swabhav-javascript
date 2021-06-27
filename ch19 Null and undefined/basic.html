@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Null and undefined
+    </title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        //Null
+        var test = null;
+        if (test === null) {
+            test = "Peter Griffin";
+        } else {
+            test = null;
+        }
+        document.writeln(test + "<br>");
+
+        //Undefined
+        var myVariable;
+        document.writeln(myVariable + "<br>"); // undefined
+
+        function doNothing() {
+            // watch paint dry
+            return;
+        }
+        var weekendPlans = doNothing();
+        document.writeln(weekendPlans + "<br>"); // undefined
+
+        var myVariable;
+        if (typeof myVariable === "undefined") {
+            document.writeln("Define me!!!" + "<br>");
+        }
+
+        var myVariable;
+        if (typeof myVariable == "undefined") {
+            document.writeln("Define me!!!" + "<br>");
+        } else {
+            document.writeln("Don't define me!!!" + "<br>");
+        }
+
+        //Null and Undefined
+        document.writeln((null == undefined) + "<br>");
+        document.writeln((null === undefined) + "<br>");
+    </script>
+</body>
+
+</html>

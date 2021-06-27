@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Numbers
+    </title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        //Using numbers
+        var stooges = 3;
+        var pi = 3.14159;
+        var color = 0xFF;
+        var massOfEarth = 5.9742e+24;
+        var temperature = -42;
+
+        document.writeln(stooges + "<br>");
+        document.writeln(pi + "<br>");
+        document.writeln(color + "<br>");
+        document.writeln(massOfEarth + "<br>");
+        document.writeln(temperature + "<br>");
+
+        //Operators
+        var total = 4 + 26;
+        var average = total / 2;
+        var doublePi = 2 * 3.14159;
+        var removeItem = 50 - 25;
+        var remainder = total % 7;
+        var more = (1 + average * 10) / 5;
+
+        document.writeln(total + "<br>");
+        document.writeln(average + "<br>");
+        document.writeln(doublePi + "<br>");
+        document.writeln(removeItem + "<br>");
+        document.writeln(remainder + "<br>");
+        document.writeln(more + "<br>");
+
+        //Incrementing
+        var i = 4;
+        i = i + 1;
+        document.writeln(i + "<br>");
+
+        //Decrementing
+        var i = 4;
+        i = i - 1;
+        document.writeln(i + "<br>");
+
+        //Other operation
+        var i = 40;
+        i = i / 2;
+        document.writeln(i + "<br>");
+
+        i++;
+        i -= 2;
+        i /= 2;
+        document.writeln(i + "<br>");
+
+        var i = 4;
+        var j = i++;
+        document.writeln(i + j + "<br>");
+
+        var i = 4;
+        var j = ++i;
+        document.writeln(i + j + "<br>");
+
+        //Infinity
+        var reallyBigNumber = Infinity;
+        var reallySmallNumber = -Infinity;
+        document.writeln(reallyBigNumber + "<br>");
+        document.writeln(reallySmallNumber + "<br>");
+
+        //Nan
+        var oops = Math.sqrt(-1);
+        document.writeln(oops + "<br>");
+
+        //Math Object
+        document.writeln(Math.E + "<br>"); //Euler constant
+        document.writeln(Math.LN2 + "<br>"); //Natural log of 2
+        document.writeln(Math.LN10 + "<br>"); //natural log of 10
+        document.writeln(Math.LOG2E + "<br>"); //Base 2 log E
+        document.writeln(Math.LOG10E + "<br>"); //Base 10 log E
+        document.writeln(Math.PI + "<br>"); //3.14159
+        document.writeln(Math.SQRT1_2 + "<br>"); //sqrt(1/2)
+        document.writeln(Math.SQRT2 + "<br>"); //sqrt(2)
+
+        function getCircumference(radius) {
+            return 2 * Math.PI * radius;
+        }
+        document.writeln(getCircumference(2) + "<br>");
+
+        //Rounding numbers
+        var position = getPositionFromCursor();
+        //document.writeln(position + "<br>");
+
+        Math.floor(.5); // 0
+        Math.ceil(.5); // 1
+        Math.round(.5); // 1
+        Math.floor(3.14); // 3
+        Math.round(3.14); // 3
+        Math.ceil(3.14); // 4
+        Math.floor(5.9); // 5
+        Math.round(5.9); // 6
+        Math.ceil(5.9); // 6
+
+        //Trigonometric function(radian)
+        Math.cos(0); // 1
+        Math.sin(0); // 0
+        Math.tan(Math.PI / 4); // 0.9999999999999999
+        Math.cos(Math.PI); // -1
+        Math.cos(4 * Math.PI); // 1
+
+        //Power and Square root
+        Math.pow(2, 4) // 2^4 (or 2 * 2 * 2 * 2)
+        Math.exp(3) //Math.E^3
+        Math.sqrt(16) //4
+
+        //Absolute Value
+        Math.abs(37) //37
+        Math.abs(-6) //6
+    </script>
+</body>
+
+</html>

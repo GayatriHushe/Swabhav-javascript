@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Booleans and stricter === and !== operators
+    </title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <script>
+        //Boolean Object
+
+        var sunny = false;
+        var traffic = true;
+
+        var boolObject = new Boolean(false);
+        var anotherBool = new Boolean(true);
+
+        //Boolean function
+
+        var bool = Boolean(true);
+
+        var bool;
+
+        bool = Boolean(null); //false
+        bool = Boolean(undefined); //false
+        bool = Boolean(); //false
+        bool = Boolean(0); //false
+        bool = Boolean(""); //false
+        bool = Boolean(NaN); //false
+        bool = Boolean(false); //false
+
+        bool = Boolean(true); //true
+        bool = Boolean("hello"); //true
+        bool = Boolean("Liam Neesons" + "Bruce Willie"); //true
+        bool = Boolean(new Boolean()); //true 
+        bool = Boolean("false"); //true
+
+
+        var boolObject = new Boolean(false);
+        if (boolObject) {
+            document.writeln("Bool, you so crazy!!!" + "<br>");
+        }
+        document.writeln(boolObject + "<br>");
+
+        //Equal
+        function theSolution(answer) {
+            if (answer == 42) {
+                document.writeln("You have nothing more to learn!" + "<br>");
+            }
+        }
+        theSolution("42"); //42 is passed in as a strin
+
+        //StrictEqual
+        function theSolution(answer) {
+            if (answer === 42) {
+                document.writeln("You have nothing more to learn!" + "<br>");
+            }
+        }
+        theSolution("42"); //42 is passed in as a strin
+    </script>
+</body>
+
+</html>
